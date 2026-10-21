@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script>document.addEventListener('DOMContentLoaded', () => {const currentTheme = localStorage.getItem('theme') || '';setTheme(currentTheme);const currentFont = localStorage.getItem('font') || '';setFont(currentFont);});function setTheme(theme) {document.querySelector("#theme").setAttribute("href", "/css/themes/" + theme + ".css");localStorage.setItem('theme', theme);}</script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/index_files/bootstrap_IQ22.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/index_files/universal_IQ22.css">
+    <link rel="stylesheet" type="text/css" id="theme" href="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/index_files/Untitled_IQ22.htm">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+nav .fas, nav .far, nav .fab, nav .fa-solid, nav .fa-regular, nav [class^="fa-"] {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    display: inline-block;
+    text-align: center;
+    width: 1.25em; 
+}
+
+.quest-chip {
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-right: 4px;
+    margin-bottom: 6px;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.quest-chip:hover, .quest-chip.active {
+    background: var(--primary, #8b0000) !important;
+    color: #fff !important;
+    border-color: var(--primary, #8b0000) !important;
+}
+
+.quest-card {
+    transition: all 0.2s ease;
+    height: 100%;
+}
+
+.quest-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.quest-card img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 0;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Completed Items Opacity & Hover Restore */
+.quest-card.completed {
+    opacity: 0.55;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.quest-card.completed:hover {
+    opacity: 1 !important;
+}
+
+.quest-card.completed .quest-title {
+    text-decoration: line-through;
+}
+
+.quest-item-wrap.hidden {
+    display: none !important;
+}
+
+.quest-badge {
+    font-size: 0.65rem;
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.quest-progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quest-progress-fill {
+    height: 100%;
+    background: var(--primary, #8b0000);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+</style>
+    <script src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/index_files/javascript_IQ22.js"></script>
+    
+    
+    <title>webmaster</title>
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/index_files/favicon.png">
+    <!---->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!---->
+    
+    
+</head>
+<body style="font-family: Pangolin !important;">
+
+
+<header>
+    <div onclick="toggleMenu()" class="p-3 my-n2 mr-n2 d-block d-md-none" style="cursor: pointer;"><i id="menuButton" class="fas fa-chevron-right"></i></div>
+    <div class="w-100 ml-3" style="letter-spacing: 10px;">
+
+    </div>
+    <h3 class="mb-0" style="padding: 6px 0; white-space: nowrap; font-size: 1.25rem;">Luuk's Little Library</h3>
+</header>
+<main>
+    <div>
+        <aside>
+            <nav class="sticky-top">
+                <img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/index_files/C3PO_and_R2D2.jpg" class="w-100" style="height: 100px;">
+<div class="divider m-0 mx-n2 p-1 px-2">Index</div>
+<a href="https://luukyluuk.neocities.org/">
+    home
+    <i class="fas fa-home"></i>
+</a>
+<a href="https://luukyluuk.neocities.org/webmaster" class="active">
+    webmaster
+    <i class="fas fa-tree"></i>
+</a>
+<a href="https://luukyluuk.neocities.org/links">
+    links
+    <i class="fas fa-paperclip"></i>
+</a>
+<a href="https://luukyluuk.neocities.org/outlinks">
+    outlinks
+    <i class="fas fa-arrow-up-right-from-square"></i>
+</a>
+<div class="divider m-0 mx-n2 p-1 px-2">Creative</div>
+
+<a href="https://luukyluuk.neocities.org/art">
+    art
+    <i class="fas fa-pen"></i>
+</a>
+<a href="https://luukyluuk.neocities.org/museum_of_dead_projects">
+    Museum of Dead Projects
+    <i class="fas fa-code"></i>
+</a>
+<a href="https://luukyluuk.neocities.org/photos">
+    photos
+    <i class="fas fa-camera"></i>
+</a>
+<div class="divider m-0 mx-n2 p-1 px-2">Writing</div>
+<a href="https://luukyluuk.neocities.org/blog">
+    blog
+    <i class="fas fa-jet-fighter-up"></i>
+</a>
+<a href="https://luukyluuk.neocities.org/library">
+    library
+    <i class="fas fa-book-open"></i>
+</a>
+<a href="https://luukyluuk.neocities.org/collections">
+    collections
+    <i class="fas fa-book"></i>
+</a>
+<div class="divider m-0 mx-n2 p-1 px-2">Fun</div>
+<a href="https://luukyluuk.neocities.org/stickers">
+    stickers
+    <i class="fas fa-star"></i>
+</a>
+<a href="https://luukyluuk.neocities.org/quizes">
+                    quizes
+                    <i class="fas fa-question-circle"></i>
+                </a>
+
+                <div class="divider m-0 mx-n2 p-1 px-2" style="padding: .1rem !important"></div>
+                <a href="https://luukyluuk.neocities.org/settings">
+                    <div>
+                        settings
+                    </div>
+                    <i class="fas fa-gear"></i>
+                </a>
+            </nav>
+        </aside>
+        <div id="content">
+            <div id="banner" style="background: center/cover url(https://i.pinimg.com/1200x/26/5a/e0/265ae0fa599b94fe7687db53ef9c8c28.jpg);"></div>
+            <div class="url">/webmaster/</div>
+            <div id="main">
+                <style>
+    #content {
+        overflow-x: hidden;
+    }
+</style>
+<div class="row no-gutters">
+<div class="col-md-5 orde-md-1 align-items-center d-flex justify-content-center">
+<img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/7868b8f5f834ce41423542403f9a3c40-Photoroom.png" style="object-fit: cover; max-width: 400px; filter:drop-shadow(0 0 5px var(--sidenav)) drop-shadow(0 0 3px var(--primary))" class="h-00 w-100 float-sm-right mx-aut deco ml-n4 d-bock">
+</div>
+<div class="col-md mr-md-4">
+<i class="fat fa-trees text-primary" style="font-size: 60pt; position: absolute; top:.5rem; opacity: .5; z-index:0"></i>
+<h1 class="pt-3 mt-n3" style="z-index:4;position:relative;font-size:45pt;letter-spacing:10pt;text-align:right;"><img class="deco ml-n5 mr-3 mt-n5 mb-n4" src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/fox.gif" style="width: 100px; height: 100px; position: relative; left: 30px;"> Luuk</h1>
+<div class="text-right"><img class="deco" src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/lef_1SGe.png"> [ he/him | 16 | somewhat gay boy | DUTCHH ]</div>
+<hr>
+<p>Hiya, I'm a dumb blonde idiot from the Netherlands. Please call
+ me Luuk or preferably: Master Skywalker. I'm nerdy, sleepy, a stargazer and i like to go for walk in nature, as far as that's possible in a city... If I had to describe myself in a couple words, I would say 
+I'm a "silly nature and nightsky obsessed Star Wars geek" and a bit of a lego kid when I have the time to
+ play with it (I <em>love</em> lego's... and books).</p>
+<div class="d-flex fanlistings flex-wrap justify-content-center">
+<a href="https://www.youtube.com/watch?v=rLqFLxGiL70&amp;list=PLBnJv6rImVe_jmwjlWME9NNka3TjycGvz&amp;index=1" target="_blank"><img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/the_best_of_1980-1990.jpg" style="width: 50px; height: 50px; object-fit: cover;"></a>
+<a target="_blank" href="https://www.youtube.com/watch?v=3y44BJgkdZs&amp;list=PLL-NbN8uTOij1Yet6F4pDxymUZ_Jyh3z5"><img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/pet_sounds.jpg" style="width: 50px; height: 50px; object-fit: cover;"></a>
+<a target="_blank" href="https://www.youtube.com/watch?v=974CXXv8jns&amp;list=OLAK5uy_m8lH4cPGpgekNff5GTg7AeQuMi86FPVo0"><img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/et_sountrack.jpg" style="width: 50px; height: 50px; object-fit: cover;"></a>
+<a href="https://www.youtube.com/watch?v=K8z8hLvjb_U&amp;list=PLI6kLIhBBwmRxi0gtMC-SYQP47Jmq-bHh"><img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/the_bends.jpg" style="width: 50px; height: 50px; object-fit: cover;"></a>
+<a target="_blank" href="https://www.youtube.com/watch?v=MQwu08Sc2vA&amp;list=PLhqBbsdEFl057YjcpQIUSbBbH5-0RNnVa"><img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/hot_fuss.jpg" style="width: 50px; height: 50px; object-fit: cover;"></a>
+<a target="_blank" href="https://www.youtube.com/watch?v=UUMD38AjYY8&amp;list=PLRW80bBvVD3UXB_ExupmVqzTUh3vqlxe9"><img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/project_hail_mary_soundtrack.jpg" style="width: 50px; height: 50px; object-fit: cover;"></a>
+<a target="_blank" href="https://www.youtube.com/watch?v=toHOnObXAbo&amp;list=PLNPGM2D7aODcXjwlPXnBSfKLukek_e9ss"><img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/definitely_maybe.jpg" style="width: 50px; height: 50px; object-fit: cover;"></a>
+<a target="_blank" href="https://www.youtube.com/watch?v=cLQox8e9688&amp;list=PLI6kLIhBBwmRW0dV8-RscRwdmBPacXdxx"><img src="https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/let_it_be.jpg" style="width: 50px; height: 50px; object-fit: cover;"></a>
+</div>
+</div>
+</div>
+<br>
+<div class="row no-gutters w-100 m-n2 pt-3">
+    <div class="col-2 p-2">
+        <div class="card" style="aspect-ratio: 3 / 4; background: center/120% url(https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/minecraft.png)"></div>
+    </div>
+    <div class="col-2 p-2">
+        <div class="card" style="aspect-ratio: 3 / 4; background: center/101% url(https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co65lb.jpg)"></div>
+    </div>
+    <div class="col-2 p-2">
+        <div class="card" style="aspect-ratio: 3 / 4; background: center/101% url(https://pics.filmaffinity.com/hogwarts_legacy-631588485-large.jpg)"></div>
+    </div>
+    <div class="col-2 p-2">
+        <div class="card" style="aspect-ratio: 3 / 4; background: center/101% url(https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/12/mixcollage-07-dec-2024-07-16-am-9929.jpg?q=49&fit=contain&w=480&dpr=2)"></div>
+    </div>
+    <div class="col-2 p-2">
+        <div class="card" style="aspect-ratio: 3 / 4; background: center/115% url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F9e%2F34%2F91%2F9e3491ea9aab78da24653b92a04d5212.jpg&f=1&nofb=1&ipt=3854a80c060bc388dd989ba14fae4df06a520631a05d647ba5a88361e6c90632)"></div>
+    </div>
+    <div class="col-2 p-2">
+        <div class="card" style="aspect-ratio: 3 / 4; background: center/101% url(https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/webmaster_files/stardew_valley.png)"></div>
+    </div>
+</div>
+<br>
+<style>
+    .fanlistings img {
+        margin-right: 2px
+    }
+</style>
+<div class="divider" style="z-index: 3;position:relative">
+    <h3 class="mb-0">Favs</h3>
+</div>
+<div class="text-justify favs position-relative" style="isolation:isolate">
+    <div style="background-image: url(https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/index_files/wallpaper.png); background-repeat: repeat; background-size: auto; position:absolute;left:-3rem; top:-2rem; height:calc(100% + 4rem);width:calc(100% + 6rem); z-index:-1"></div>
+    <div class="mb-4 card p-2 d-block">
+        <code>
+            <i class="fas fa-jet-fighter-up"></i>
+            general:
+        </code>
+        reading, writing, dark red, autumn, tech, Star Wars, comic books, movies, astronomy and foxes
+    </div>
+    <div class="mb-4 card p-2 d-block">
+        <code>
+            <i class="fas fa-camera"></i>
+            movies:
+        </code>
+E.T. The Extra-Terrestrial, Star Wars: The Empire Strikes Back + all the other star wars movies EXCEPT THE SEQUELS, Project Hail Mary, Lord of the Rings: Return of the King, all the Harry Potter movies<3
+    </div>
+    <div class="mb-4 card p-2 d-block">
+        <code>
+            <i class="fas fa-book"></i>
+            books:
+        </code>
+        The Ocean at the End of the Lane, Harry Potter 1-7, Lord of the Rings + The Hobbit, Project Hail Mary, The Shining, A Monster Calls, A Brief History of Time, Dungeon Crawler Carl
+    </div>
+    <div class="mb-4 card p-2 d-block">
+        <code>
+            <i class="fas fa-music"></i>
+            music:
+        </code>
+        U2, Oasis, Twenty One Pilots, The Beach Boys, The Beatles, The 1975, Queen, Radiohead, Soundtrack, Britpop, Rock and Roll
+    </div>
+</div>
+<div class="divider" style="z-index: 3;position:relative">
+    <h3 class="mb-0">Website</h3>
+</div>
+<p>So, plot twist: I’m repeating a year at school. Am I slightly terrified? Absolutely. But instead of crying into my pillow, I decided to code this little website to log the whole survival journey. Somewhere between the panic and the late-night coding, it turned into a big passion project. Now, it kinda turned into my personal web space where I can hide from reality.
+
+    Feel free to wander around, kick off your shoes, and please <em>please</em> interact with stuff or leave a comment! I would genuinely love that. (validation is my favorite snack). </p>
+
+
+
+
+<div class="divider" style="z-index: 3; position:relative">
+    <h3 class="mb-0">Bucket List</h3>
+</div>
+
+<div class="position-relative p-2" style="isolation:isolate">
+    <div style="background-image: url(https://cdn.jsdelivr.net/gh/luukyluuky/luukslittlelibrary@main/index_files/wallpaper.png); background-repeat: repeat; background-size: auto; position:absolute; left:-3rem; top:-2rem; height:calc(100% + 4rem); width:calc(100% + 6rem); z-index:-1"></div>
+
+    <div class="card p-2 mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+            <code><i class="fas fa-scroll"></i> Progress:</code>
+            <span class="small font-weight-bold" id="questProgressText">0 / 0 items complete (0%)</span>
+        </div>
+        <div class="quest-progress-bar">
+            <div class="quest-progress-fill" id="questProgressFill"></div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex flex-wrap">
+        <div class="card p-1 px-2 quest-chip active" onclick="filterQuests('all')"><i class="fas fa-border-all"></i> All</div>
+        <div class="card p-1 px-2 quest-chip" onclick="filterQuests('completed')"><i class="fas fa-check-circle text-success"></i> Completed</div>
+        <div class="card p-1 px-2 quest-chip" onclick="filterQuests('geek')"><i class="fas fa-jedi"></i> Nerd stuff</div>
+        <div class="card p-1 px-2 quest-chip" onclick="filterQuests('travel')"><i class="fas fa-compass"></i> Travel</div>
+        <div class="card p-1 px-2 quest-chip" onclick="filterQuests('sidequests')"><i class="fas fa-dice-d20"></i> Side quests</div>
+        <div class="card p-1 px-2 quest-chip" onclick="filterQuests('creative')"><i class="fas fa-palette"></i> Creative</div>
+        <div class="card p-1 px-2 quest-chip" onclick="filterQuests('life')"><i class="fas fa-feather-pointed"></i> Life goals</div>
+    </div>
+
+    <div class="row no-gutters m-n1" id="questContainer">
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek" data-status="completed">
+            <div class="card p-2 quest-card completed">
+                <div class="d-flex align-items-center">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.exclaim.ca%2Fdr2uqw6xy%2Fimage%2Fupload%2Fc_limit%2Cw_890%2Ff_auto%2Fq_auto%2Ftso_et_in_concert_2025_6cd2af516b%3F_a%3DBAVAfVIB0&f=1&nofb=1&ipt=feb9f7f424e3795a2b6ba7b4861c93ee5f61a46e03b5db4169d6a9a3e835721c" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> soundtrack</code>
+                            <span class="badge badge-warning quest-badge">Done</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Watch a movie with life orchestra</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I need to see a John Williams score played by a life orchestra</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek creative sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/c5/6f/80/c56f80145c1ee492adfc8c9c683f89ca.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> language</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Create my own language.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Would probably be for my own fantasy novel wouldn't it</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="travel geek" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/236x/3c/15/55/3c1555c88e27516ce55b95050677307d.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> travel</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Visit hobbiton.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I WANNA GO THERE BUT IT'S SO FAR AWAY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek creative" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/236x/d3/91/65/d39165f3b806a090645023708ba904a9.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> tech</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Make a game for my gameboy.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Code a game for my gameboy and then actually put it on a cardridge to play</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="travel" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/236x/d2/42/f3/d242f3ea318caa3050f118b28cc8860a.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> travel</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Step foot in antartica.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I already flew over it so...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/4a/f7/14/4af7144fb4d3ebda1be96e950e9bfcbf.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> games</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Play D&D with my friends.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I don't think it's ever gonna happen T-T</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/236x/f3/07/8a/f3078a6a690819195d1905cabd133497.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> music</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Learn the violin.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">First need one tho:/</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="sidequests life" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/1200x/10/eb/be/10ebbe0e9cfbfff151448d67abf79b9d.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> music</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Learn to side-read on piano.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Image being able to play any piece you want without have to practice.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="creative sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/18/7d/be/187dbe2732fc7f2f0494de1177f3d185.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> games</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Create my own boardgame.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">My own fully thought out and self created board game.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/33/4c/cb/334ccb74f072a8e58fa67af0366005f2.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> books</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Leave random notes in books in the library.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Wouldn't it be fun to write notes or letters to complete strangers.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/2d/73/9b/2d739b3d9736f06531759d3ef60bada1.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> tech</code>
+                            <span class="badge badge-warning quest-badge">DOING</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Collect every Nintendo console</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">NEED EM ALL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/98/c5/b7/98c5b7cb77e07cc9145ef936622a8273.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> nerd</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Learn 100 digits of pie</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I see people do this on my fyp and now I wanna do it too.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/7b/40/de/7b40deb8a2a01f0ba3022f4fd6e40bde.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> tech</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Build my own radio reciever</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Imagine I could listen to the radio on a device I build myself.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="creative sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/1200x/88/3a/ca/883aca0d2f3e430d663d1ce7b11ee0c5.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> music</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Write and record a full album</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Idc if it sucks I just need to do this once in my life.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="creative sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/6d/83/a7/6d83a7d3d7bd4dd164d640402b610334.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> crochet</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Knit or crochet a sweater</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I need a dark red hand knitted/crochet sweater.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="creative life" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/c3/73/97/c37397ed027af84dd285490302a8d156.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> crochet</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Learn to crochet</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Crochet seems like such and aesthetic and relaxing hobby.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek life" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/1200x/ca/f4/43/caf443441903a00684c891b024d5d91d.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> books</code>
+                            <span class="badge badge-warning quest-badge">DOING</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Finish the cosmere</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Brando Sando, you're amazing, I'm gonna read it all.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="sidequests creative" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/f6/24/a7/f624a7285af3956b179e807608b0b2f6.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> books</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Rebind a book</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I wanna rebind my paperbacks into my own hardcoverssss</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/e7/39/6d/e7396d4228d45cbde16ddec953a859a9.jpg" class="mr-2" alt="Lego Falcon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> cards</code>
+                            <span class="badge badge-warning quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Learn card shuffling</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I can shuffle cards, but I wanna be able to do all kinds of cool tricks yk</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/1200x/29/bb/75/29bb7569cafa5ec76ef283d2f3ee7618.jpg" class="mr-2" alt="Observatory">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> singing</code>
+                            <span class="badge badge-secondary quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Take singing lessons</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I WANNA BE ABLE TO SING</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="life creative" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/f0/93/50/f0935018e638be8eb8c766f8f8fee4f8.jpg" class="mr-2" alt="Northern Lights">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> acting</code>
+                            <span class="badge badge-secondary quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Play in a movie or musical.</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Maybe directing a movie would be cool too.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="sidequests" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/e1/49/d4/e149d40a52bc1a632d7696e2762546f6.jpg" class="mr-2" alt="Forest Cabin">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> languages</code>
+                            <span class="badge badge-secondary quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Learn a new language</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Currently thinking of German (since I have to for school anyway), or sign langauge.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="travel" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/41/94/e6/4194e6b715f92e5021b0321a8fd96d0e.jpg" class="mr-2" alt="Marathon">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> nothern lights</code>
+                            <span class="badge badge-secondary quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">See the northern lights</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">If I end up living somewhere up north, seeing the northern lights is definatly something i have to do.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="geek" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/1200x/b4/63/35/b463357fa08ce6ab05f8a5f46b96cf2c.jpg" class="mr-2" alt="Bicycle">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> trains</code>
+                            <span class="badge badge-secondary quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Operate a steam locomotive</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">I already love riding trains, but actually operating one would be the coolest thing ever.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="life creative" data-status="active">
+            <div class="card p-2 quest-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://i.pinimg.com/736x/08/fe/8d/08fe8d800b07d94fdfaea52ff8e34493.jpg" class="mr-2" alt="Writing">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="far fa-square text-muted"></i> write</code>
+                            <span class="badge badge-secondary quest-badge">TO DO</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Write a fantasy novel</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Write and publish my own full on fantasy book.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6 p-1 quest-item-wrap" data-tag="life" data-status="completed">
+            <div class="card p-2 quest-card completed">
+                <div class="d-flex align-items-center">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.seeklogo.com%2Flogo-png%2F49%2F1%2Fneocities-logo-png_seeklogo-491879.png&f=1&nofb=1&ipt=dd9711d637b73e4054f08e7969ae8f75e580edc2eaff467317a60d39ca40b515" class="mr-2" alt="Neocities">
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <code><i class="fas fa-square-check text-success"></i> site</code>
+                            <span class="badge badge-success quest-badge">DONE</span>
+                        </div>
+                        <div class="quest-title font-weight-bold small">Make a Neocities Site</div>
+                        <span class="text-muted d-block" style="font-size:0.75rem;">Create my own neocities website to do fun stuff:)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</main>
+<footer><i class="far fa-copyright"></i> Luuk's Little Library 2026–2026</footer>
+
+
+<script type="text/javascript">
+    var menu = document.querySelector("aside")
+    var menubtn = document.querySelector("#menuButton")
+
+    function toggleMenu() {
+        menu.classList.toggle("open")
+        menubtn.classList.toggle("fa-chevron-right")
+        menubtn.classList.toggle("fa-chevron-left")
+    }
+
+    function updateQuestProgress() {
+        const items = Array.from(document.querySelectorAll('.quest-item-wrap:not(.hidden)'));
+        const total = items.length;
+        const completed = items.filter(item => item.getAttribute('data-status') === 'completed').length;
+        
+        const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+        
+        document.getElementById('questProgressText').innerText = `${completed} / ${total} items complete (${percentage}%)`;
+        document.getElementById('questProgressFill').style.width = percentage + '%';
+    }
+
+    function sortCompletedToBottom() {
+        const container = document.getElementById('questContainer');
+        const items = Array.from(container.children);
+        
+        items.sort((a, b) => {
+            const aDone = a.getAttribute('data-status') === 'completed' ? 1 : 0;
+            const bDone = b.getAttribute('data-status') === 'completed' ? 1 : 0;
+            return aDone - bDone;
+        });
+
+        items.forEach(item => container.appendChild(item));
+    }
+
+    function filterQuests(tag) {
+        const chips = document.querySelectorAll('.quest-chip');
+        chips.forEach(chip => chip.classList.remove('active'));
+        
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add('active');
+        }
+
+        const items = document.querySelectorAll('.quest-item-wrap');
+        items.forEach(item => {
+            const status = item.getAttribute('data-status');
+            const itemTags = (item.getAttribute('data-tag') || '').split(' ');
+
+            if (tag === 'all') {
+                item.classList.remove('hidden');
+            } else if (tag === 'completed') {
+                if (status === 'completed') {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            } else {
+                if (itemTags.includes(tag)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            }
+        });
+
+        updateQuestProgress();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        sortCompletedToBottom();
+        updateQuestProgress();
+    });
+</script>
+</body></html>
