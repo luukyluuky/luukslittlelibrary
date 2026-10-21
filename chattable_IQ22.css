@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
+
+:root {
+    --content: #3f3c39;
+    --sidenav: #6b786f;
+    --sidenav2: #526159;
+    --darker: #504b48;
+    --topnav: #28231f;
+    --faded: #312e2d;
+    --dark: var(--topnav);
+    --muted: #888f80;
+    --text: #aca79e;
+    --primary: #75927d;
+    --banner: url("https://images.unsplash.com/photo-1758222667768-af2cb1bdae64?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974");
+
+    --ul: #76895c55;
+    --ib: rgba(255,255,255,0.1);
+    --ob: rgba(0,0,0,.5);
+    --ob2: rgba(0,0,0,.25);
+    --hr: rgba(141,137,133,.4);
+
+    --textside: var(--topnav);
+    --texttop: #9f846d;
+
+    /* FONTS */
+    --display: "Chelsea Market";
+    --sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --mono: monospace;
+
+    /* SCALES */
+    --size: 12pt;
+    --scale: 1.1;
+    --h1: calc(var(--h2) * var(--scale));
+    --h2: calc(var(--h3) * var(--scale));
+    --h3: calc(var(--h4) * var(--scale));
+    --h4: calc(var(--h5) * var(--scale));
+    --h5: calc(var(--h6) * var(--scale));
+    --h6: calc(var(--size) * var(--scale));
+}
+
+
+::-webkit-scollbar {
+    width: 7px !important;
+}
+
+::-webkit-scollbar-track {
+    background: none !important;
+}
+
+::-webkit-scollbar-thumb {
+    background: var(--primary) !important;
+    cursor: pointer !important;
+}
+
+::-webkit-scollbar-thumb:hover {
+    background: var(--accent) !important;
+}
+
+body {
+    background: var(--faded);
+    font-size: var(--size);
+}
+
+#top_banner {
+    width: calc(100% - 15px);
+    height: 25px;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    font-size: 12pt;
+    font-weight: bold !important;
+    font-style: italic !important;
+    background: none !important;
+}
+
+#settings {
+    filter: invert(.65);
+    right: .75rem;
+    top: .75rem;
+}
+
+#top_banner, .allMessages, #input, #input:before, #timestamp {
+    color: var(--text) !important;
+}
+
+img {
+    max-width: 100%;
+}
+
+.allMessages {
+    padding: 0;
+    padding-bottom: .5rem !important;
+    font-family: var(--sans) !important;
+}
+
+#input {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    padding-top: 1.5rem;
+    font-family: var(--sans);
+    background-color: transparent !important;
+    background-image: linear-gradient(transparent, var(--faded) 60%);
+}
+
+#background {
+    height: 100vh !important;
+    padding-bottom: 2rem;
+}
+
+#emojiTray {
+    z-index: 99;
+    background-color: var(--dark);
+    border: 1px solid var(--ib) !important;
+    outline: 2px solid var(--ob) !important;
+    color: var(--muted);
+    font-family: var(--display);
+}
+
+#emojiTrayToggle {
+    position: absolute !important;
+    bottom: .75rem !important;
+    right: .5rem !important;
+    z-index: 100 !important;
+    margin-top: -2rem;
+    filter: invert(.65);
+}
+
+.emojiInGrid {
+    height: 100px;
+}
+
+.msgWrapper {
+    background: transparent;
+    margin: .75rem;
+    border-radius: var(--rounding);
+    -webkit-border-radius: var(--rounding);
+    -moz-border-radius: var(--rounding);
+    -ms-border-radius: var(--rounding);
+    -o-border-radius: var(--rounding);
+}
+
+.emoji {
+    height: unset;
+}
+
+.msgBody {
+    padding-top: .5rem;
+}
+
+.owner {
+  background-color: var(--primary);
+}
+
+.senderInfo {
+    font-family: var(--display);
+    color: var(--muted)
+}
+
+/* Emojis inside the actual chat messages (30x30px) */
+.chattable-emoji, 
+img.emoji, 
+.chat-message img {
+    width: 30px !important;
+    height: 30px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+/* Emojis inside the popup menu selection grid (20x20px) */
+#emojiGrid img.emojiInGrid {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+}
